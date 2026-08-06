@@ -15,23 +15,24 @@ assets/video/       Vídeo del hero (hero.mp4) + poster
 netlify.toml        Configuración de Netlify (headers/caché)
 ```
 
-## ⚠️ 1. Reemplazar las imágenes placeholder
+## 1. Imágenes
 
-Las imágenes del chat no llegaron como archivo, así que generé placeholders con la misma
-proporción. **Sustitúyelas por los renders reales usando exactamente estos nombres** (no hay
-que tocar ningún código):
+Renders reales ya integrados y optimizados para web (JPG progresivo, q82):
 
-| Archivo en `assets/img/`  | Contenido esperado                                        |
-| ------------------------- | --------------------------------------------------------- |
-| `render-beachfront.jpg`   | Render frontal desde la playa (panorámico ~3.4:1)          |
-| `render-terraces-sea.jpg` | Vista al mar desde las terrazas (panorámico ~2.9:1)        |
-| `render-boulevard.jpg`    | Calle con fachadas terracota (~1:1)                        |
-| `masterplan-green.jpg`    | Axonometría verde con jardines (~1.2:1) — *base del plano interactivo* |
-| `masterplan-axon.jpg`     | Axonometría de línea del bloque (~1.6:1)                   |
-| `og-image.jpg`            | Imagen para compartir en RRSS (1200×630) — la generada ya sirve |
+| Archivo en `assets/img/`  | Render original          | Uso                                   |
+| ------------------------- | ------------------------ | ------------------------------------- |
+| `render-beachfront.jpg`   | Exterior Beach.jpeg      | Arquitectura, amenities, galería      |
+| `render-terraces-sea.jpg` | Villas landscape.jpg     | Full-bleed con parallax, galería      |
+| `render-boulevard.jpg`    | Lateral.jpg              | Arquitectura, amenities, galería      |
+| `render-access.jpg`       | Access.jpg               | Amenities (concierge), galería        |
+| `masterplan-green.jpg`    | Isometric Concept.jpg    | **Masterplan interactivo** (hotspots) |
+| `masterplan-axon.jpg`     | Facade.jpg               | Arquitectura, galería                 |
+| `og-image.jpg`            | generada automáticamente | Compartir en RRSS (1200×630)          |
 
-Tras poner el masterplan real, ajusta la posición de los marcadores interactivos en
-`index.html` (sección `#masterplan`): cada botón `.hotspot` tiene `style="--x:..%; --y:..%"`.
+Los marcadores del masterplan ya están posicionados sobre el render real; para moverlos,
+edita `style="--x:..%; --y:..%"` de cada `.hotspot` en `index.html`. Si algún día cambias
+un render, mantén el nombre del archivo y actualiza los atributos `width`/`height` de sus
+`<img>` con las nuevas dimensiones.
 
 ## ⚠️ 2. Datos comerciales a confirmar
 

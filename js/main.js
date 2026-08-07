@@ -76,13 +76,11 @@
     setTimeout(finishPreloader, 900);
   }
 
-  /* ── Nav state + WhatsApp float ── */
+  /* ── Nav state ── */
   const nav = document.getElementById("nav");
-  const wa = document.getElementById("waFloat");
   const onScroll = () => {
     const y = window.scrollY || 0;
     if (nav) nav.classList.toggle("scrolled", y > 40);
-    if (wa) wa.classList.toggle("visible", y > window.innerHeight * 0.7);
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -166,24 +164,6 @@
       });
     });
 
-    // Payment plan progress line
-    const progress = document.getElementById("payplanProgress");
-    if (progress) {
-      const mmp = gsap.matchMedia();
-      mmp.add("(min-width: 901px)", () => {
-        gsap.fromTo(progress, { width: 0 }, {
-          width: "100%", duration: 1.8, ease: "power2.inOut",
-          scrollTrigger: { trigger: ".payplan", start: "top 75%", once: true },
-        });
-      });
-      mmp.add("(max-width: 900px)", () => {
-        gsap.fromTo(progress, { height: 0 }, {
-          height: "100%", duration: 1.8, ease: "power2.inOut",
-          scrollTrigger: { trigger: ".payplan", start: "top 75%", once: true },
-        });
-      });
-    }
-
     // Horizontal gallery (desktop pin)
     const gallery = document.querySelector(".gallery");
     const track = document.getElementById("galleryTrack");
@@ -241,25 +221,6 @@
     li.addEventListener("mouseenter", activate);
     li.addEventListener("click", activate);
   });
-
-  /* ── ROI calculator ── */
-  const calcValue = document.getElementById("calcValue");
-  const calcYield = document.getElementById("calcYield");
-  if (calcValue && calcYield) {
-    const fmt = (n) => "AED " + Math.round(n).toLocaleString("en-US");
-    const update = () => {
-      const v = parseFloat(calcValue.value);
-      const y = parseFloat(calcYield.value);
-      document.getElementById("calcValueOut").textContent = fmt(v);
-      document.getElementById("calcYieldOut").textContent = y.toFixed(1) + "%";
-      const annual = (v * y) / 100;
-      document.getElementById("calcAnnual").textContent = fmt(Math.round(annual / 1000) * 1000);
-      document.getElementById("calcMonthly").textContent = fmt(Math.round(annual / 12 / 100) * 100);
-    };
-    calcValue.addEventListener("input", update);
-    calcYield.addEventListener("input", update);
-    update();
-  }
 
   /* ── Register form (Netlify AJAX) ── */
   const form = document.querySelector(".reg-form");

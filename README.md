@@ -1,23 +1,29 @@
 # Positano Residences — Al Marjan Island
 
-Landing de venta *off-plan* para **Positano Residences** (Qube Development): villas y residencias
-en terrazas frente al mar en Al Marjan Island, Ras Al Khaimah. Sitio 100% estático — sin build,
-listo para Netlify.
+Web de presentación del proyecto de arquitectura **Positano Residences** (Qube Development):
+villas y residencias en terrazas frente al mar en Al Marjan Island, Ras Al Khaimah.
+Sitio 100% estático — sin build, listo para Netlify.
 
 ## Estructura
 
 ```
 index.html          Página única (todas las secciones)
 css/style.css       Sistema de diseño completo
-js/main.js          Interacciones (GSAP + Lenis por CDN, con fallback sin JS)
-assets/img/         Imágenes  ⚠️ ahora mismo son PLACEHOLDERS
+js/main.js          Interacciones (GSAP + Lenis auto-alojados, con fallback sin JS)
+js/vendor/          GSAP, ScrollTrigger y Lenis (sin CDNs externos)
+assets/img/         Renders optimizados para web
+assets/fonts/       Cormorant Garamond + Manrope (woff2, auto-alojadas)
 assets/video/       Vídeo del hero (hero.mp4) + poster
-netlify.toml        Configuración de Netlify (headers/caché)
+netlify.toml        Configuración de Netlify
 ```
 
-## 1. Imágenes
+## Secciones
 
-Renders reales ya integrados y optimizados para web (JPG progresivo, q82):
+Hero (vídeo) → Vision → Architecture → **Masterplan interactivo** (hotspots) → Residences
+(tipologías, sin precios) → Amenities → Gallery (scroll horizontal) → Location → Contact
+(formulario Netlify Forms "contact").
+
+## Imágenes
 
 | Archivo en `assets/img/`  | Render original          | Uso                                   |
 | ------------------------- | ------------------------ | ------------------------------------- |
@@ -29,38 +35,40 @@ Renders reales ya integrados y optimizados para web (JPG progresivo, q82):
 | `masterplan-axon.jpg`     | Facade.jpg               | Arquitectura, galería                 |
 | `og-image.jpg`            | generada automáticamente | Compartir en RRSS (1200×630)          |
 
-Los marcadores del masterplan ya están posicionados sobre el render real; para moverlos,
-edita `style="--x:..%; --y:..%"` de cada `.hotspot` en `index.html`. Si algún día cambias
-un render, mantén el nombre del archivo y actualiza los atributos `width`/`height` de sus
-`<img>` con las nuevas dimensiones.
+Los marcadores del masterplan se posicionan con `style="--x:..%; --y:..%"` en cada
+`.hotspot` de `index.html`. Si cambias un render, mantén el nombre del archivo y actualiza
+los atributos `width`/`height` de sus `<img>`.
 
-## ⚠️ 2. Datos comerciales a confirmar
+## Datos a confirmar
 
-Son **ilustrativos** (marcados con `<!-- TODO -->` en `index.html`). Búscalos y edítalos:
+Marcados con `<!-- TODO -->` en `index.html`:
 
-- Precios: `AED 2.1M` (Sky), `AED 6.5M` (Garden), `AED 9.8M` (Beach) · superficies y dormitorios
-- Mix de unidades: `18` villas / `76` residencias / `300 m` de playa (sección stats)
-- Plan de pago `20/40/40` y entrega `Q4 2028` (hero + sección invest)
-- Yield proyectado `9%` y tiempos de trayecto (sección location)
-- **Contacto**: email, teléfono y número de WhatsApp (footer + botón flotante `wa-float`,
-  formato `https://wa.me/9715XXXXXXXX`)
+- Mix de unidades del banner de cifras: `18` villas / `76` residencias / `300 m` de playa
+- Superficies y dormitorios de las tipologías
+- Tiempos de trayecto de la sección Location
+- **Email de contacto** del footer (`sales@qubedevelopment.com` es placeholder)
 
-El disclaimer legal del footer ya cubre que todo es indicativo, pero revísalo con tu equipo.
+## Desplegar en Netlify
 
-## 3. Desplegar en Netlify
-
-1. Sube el repo a GitHub y en Netlify: **Add new site → Import from Git**.
+1. **Add new site → Import from Git** → elige el repo, rama `main`.
 2. Build command: *(vacío)* · Publish directory: `.` — lo lee de `netlify.toml`.
-3. **Formulario**: usa Netlify Forms (`register-interest`). Se activa solo al desplegar.
-   Verás los leads en *Site → Forms*; configura ahí las notificaciones por email.
+3. **Formulario**: Netlify Forms (`contact`), se activa solo al desplegar. Los leads
+   aparecen en *Site → Forms*; configura ahí las notificaciones por email.
    *En local el formulario no envía — solo funciona desplegado.*
+
+### Si un deploy no se refleja
+
+- Comprueba en *Deploys* que el último deploy es **Published** y corresponde al commit
+  esperado (sale el hash de git).
+- La caché ya no es agresiva (se quitó el `immutable` de `/assets/*`): tras un deploy,
+  un refresco duro (`Ctrl/Cmd + Shift + R`) trae siempre la última versión.
+- Si los pushes no disparan deploys: *Site configuration → Build & deploy →
+  Continuous deployment* — revisa la rama de producción y que la app de GitHub de
+  Netlify tenga acceso al repo.
 
 ## Notas técnicas
 
-- Animaciones: GSAP + ScrollTrigger y Lenis **auto-alojados** en `js/vendor/` (cero dependencias
-  externas; también las fuentes en `assets/fonts/`). Si JS falla o el usuario tiene
-  `prefers-reduced-motion`, la página se muestra completa sin animaciones (nada queda oculto).
+- Animaciones GSAP + ScrollTrigger + Lenis auto-alojadas. Con JS deshabilitado o
+  `prefers-reduced-motion`, la página se muestra completa sin animaciones.
 - El preloader se muestra una vez por sesión (`sessionStorage`).
-- Vídeo del hero: `assets/video/hero.mp4` (2.4 MB). Si lo cambias, mantén el nombre o
-  actualiza el `<source>` del hero; añade un `hero-poster.jpg` acorde.
 - Probar en local: `python3 -m http.server 8080` y abrir `http://localhost:8080`.

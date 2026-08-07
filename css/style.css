@@ -146,7 +146,6 @@ section[id] { scroll-margin-top: 76px; }
 .btn-ghost { border-color: rgba(233, 223, 201, 0.45); color: var(--cream); }
 .btn-ghost:hover { border-color: var(--cream); background: rgba(233, 223, 201, 0.08); }
 .btn-small { padding: 0.75em 1.5em; font-size: 11px; }
-.btn-wide { width: 100%; text-align: center; }
 
 /* ── Preloader ── */
 .preloader {
@@ -656,64 +655,6 @@ html.js .preloader { display: flex; }
   .map-label { font-size: 8px; letter-spacing: 0.14em; }
   .map-label-dim { font-size: 7.5px; }
 }
-/* ── Register ── */
-.reg-grid {
-  display: grid; grid-template-columns: 5fr 6fr;
-  gap: clamp(3rem, 7vw, 7rem);
-  align-items: start;
-}
-.reg-form .field { margin-bottom: 1.7rem; }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.reg-form label {
-  display: block;
-  font-size: 10.5px; font-weight: 500;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--stone-light);
-  margin-bottom: 0.5rem;
-}
-.reg-form label em { text-transform: none; letter-spacing: 0.05em; font-style: italic; }
-.reg-form input, .reg-form select, .reg-form textarea {
-  width: 100%;
-  font-family: var(--font-sans);
-  font-size: 1rem; font-weight: 300;
-  color: var(--cream);
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid rgba(233, 223, 201, 0.3);
-  padding: 0.6em 0;
-  border-radius: 0;
-  transition: border-color 0.3s;
-}
-.reg-form input:focus, .reg-form select:focus, .reg-form textarea:focus {
-  outline: none;
-  border-bottom-color: var(--terra-light);
-}
-.reg-form ::placeholder { color: rgba(164, 154, 138, 0.55); }
-.reg-form textarea { resize: vertical; }
-.reg-form .btn { margin-top: 0.8rem; }
-.reg-note {
-  margin-top: 1.1rem;
-  font-size: 11px;
-  color: var(--stone-light);
-  opacity: 0.8;
-}
-.hp-field { position: absolute; left: -9999px; opacity: 0; }
-.reg-success {
-  margin-top: 1.6rem;
-  border: 1px solid rgba(217, 143, 99, 0.5);
-  padding: 1.4rem 1.6rem;
-  font-size: 0.95rem;
-  color: var(--stone-light);
-}
-.reg-success strong {
-  display: block;
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: 1.35rem;
-  color: var(--cream);
-  margin-bottom: 0.3rem;
-}
-
 /* ── Footer ── */
 .footer {
   background: var(--ink);
@@ -776,7 +717,7 @@ html.anim [data-reveal="clip"] { clip-path: inset(10% 8% 10% 8%); }
   .nav-burger { display: block; }
 }
 @media (max-width: 900px) {
-  .vision-grid, .arch-grid, .amen-grid, .reg-grid { grid-template-columns: 1fr; }
+  .vision-grid, .arch-grid, .amen-grid { grid-template-columns: 1fr; }
   .arch-copy { position: static; }
   .amen-visual { order: -1; }
   .hero-stats div:nth-child(3) { border-left: 0; padding-left: 0; }
@@ -785,7 +726,6 @@ html.anim [data-reveal="clip"] { clip-path: inset(10% 8% 10% 8%); }
 @media (max-width: 600px) {
   .nav-actions .btn { display: none; }
   .hero-ctas .btn { width: 100%; text-align: center; }
-  .field-row { grid-template-columns: 1fr; gap: 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero-scroll { display: none; }
 }

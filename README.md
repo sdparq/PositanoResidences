@@ -19,10 +19,9 @@ netlify.toml        Configuración de Netlify
 
 ## Secciones
 
-Hero (vídeo) → Vision → Architecture → **Masterplan interactivo** (hotspots) → Residences
-(tipologías, sin precios) → Amenities → Gallery (scroll horizontal) → Location (con plano
-estilizado SVG del archipiélago y marcador del proyecto) → Contact
-(formulario Netlify Forms "contact").
+Hero (vídeo) → Vision → Architecture → **Masterplan interactivo** (hotspots) → Amenities →
+Gallery (scroll horizontal) → Location (plano estilizado SVG del archipiélago con marcador
+del proyecto). Contacto: mailto en el nav + datos del footer.
 
 ## Imágenes
 
@@ -47,15 +46,12 @@ Marcados con `<!-- TODO -->` en `index.html`:
 - Mix de unidades del banner de cifras: `18` villas / `76` residencias / `300 m` de playa
 - Superficies y dormitorios de las tipologías
 - Tiempos de trayecto de la sección Location
-- **Email de contacto** del footer (`sales@qubedevelopment.com` es placeholder)
+- **Email de contacto** del footer y del botón del nav (`sales@qubedevelopment.com` es placeholder)
 
 ## Desplegar en Netlify
 
 1. **Add new site → Import from Git** → elige el repo, rama `main`.
 2. Build command: *(vacío)* · Publish directory: `.` — lo lee de `netlify.toml`.
-3. **Formulario**: Netlify Forms (`contact`), se activa solo al desplegar. Los leads
-   aparecen en *Site → Forms*; configura ahí las notificaciones por email.
-   *En local el formulario no envía — solo funciona desplegado.*
 
 ### Si un deploy no se refleja
 

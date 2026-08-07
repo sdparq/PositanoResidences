@@ -209,34 +209,6 @@
     li.addEventListener("click", activate);
   });
 
-  /* ── Register form (Netlify AJAX) ── */
-  const form = document.querySelector(".reg-form");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const btn = document.getElementById("regSubmit");
-      const success = document.getElementById("regSuccess");
-      btn.disabled = true;
-      btn.textContent = "Sending…";
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString(),
-      })
-        .then((res) => {
-          if (!res.ok) throw new Error("submit failed");
-          form.reset();
-          btn.style.display = "none";
-          success.hidden = false;
-        })
-        .catch(() => {
-          // Outside Netlify (local preview) the endpoint doesn't exist —
-          // fall back to a native submit so it still works when deployed.
-          form.submit();
-        });
-    });
-  }
-
   /* ── Custom cursor (fine pointers only) ── */
   if (anim && window.matchMedia("(pointer: fine)").matches) {
     const dot = document.querySelector(".cursor-dot");

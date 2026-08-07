@@ -79,6 +79,9 @@ body {
 }
 body.locked { overflow: hidden; }
 img, video { display: block; max-width: 100%; }
+/* width/height attrs give the intrinsic ratio; height:auto keeps it
+   when CSS scales the width (prevents stretching) */
+img { height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 ul { list-style: none; }
@@ -650,7 +653,7 @@ html.js .preloader { display: flex; }
 .amen-list li:hover, .amen-list li.active { opacity: 1; padding-left: 0.6rem; }
 .amen-visual {
   position: relative;
-  aspect-ratio: 4 / 3.1;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 .amen-visual img {
@@ -677,8 +680,10 @@ html.js .preloader { display: flex; }
 }
 .gallery-track::-webkit-scrollbar { display: none; }
 .gallery-item { flex-shrink: 0; scroll-snap-align: center; }
-.gallery-item img { height: clamp(260px, 52vh, 520px); width: auto; max-width: 80vw; object-fit: cover; }
+.gallery-item img { height: clamp(260px, 52vh, 520px); width: auto; max-width: 88vw; object-fit: cover; }
 .gallery-item.tall img { height: clamp(300px, 62vh, 620px); }
+/* panoramic renders: lower height so the full width fits uncropped */
+.gallery-item.wide img { height: clamp(220px, 36vh, 380px); }
 /* pinned (desktop, JS) mode */
 .gallery.pinned { height: 100svh; padding: 0; display: flex; flex-direction: column; justify-content: center; }
 .gallery.pinned .gallery-track { overflow: visible; scroll-snap-type: none; }

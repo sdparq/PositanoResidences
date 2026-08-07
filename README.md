@@ -13,7 +13,7 @@ js/main.js          Interacciones (GSAP + Lenis auto-alojados, con fallback sin 
 js/vendor/          GSAP, ScrollTrigger y Lenis (sin CDNs externos)
 assets/img/         Renders optimizados para web
 assets/fonts/       Cormorant Garamond + Manrope (woff2, auto-alojadas)
-assets/video/       Vídeo del hero (hero.mp4) + poster
+assets/video/       Vídeo del hero (hero.mp4 1080p + hero.webm fallback) + poster
 netlify.toml        Configuración de Netlify
 ```
 
@@ -72,4 +72,7 @@ Marcados con `<!-- TODO -->` en `index.html`:
 - Animaciones GSAP + ScrollTrigger + Lenis auto-alojadas. Con JS deshabilitado o
   `prefers-reduced-motion`, la página se muestra completa sin animaciones.
 - El preloader se muestra una vez por sesión (`sessionStorage`).
+- Vídeo del hero: reprocesado a 1080p (Lanczos + sharpen + grano fino, H.264 CRF 19)
+  con fallback WebM/VP9. Si consigues el clip original en 1080p/4K del visualizador,
+  sustitúyelo y re-exporta con la misma receta para un salto más de calidad.
 - Probar en local: `python3 -m http.server 8080` y abrir `http://localhost:8080`.

@@ -315,7 +315,7 @@ html.js .preloader { display: flex; }
 }
 .hero-media { position: absolute; inset: 0; z-index: -1; background: var(--ink); }
 .hero-video {
-  width: 100%; height: 118%;
+  width: 100%; height: 110%; /* modest overscan: keeps parallax without softening */
   object-fit: cover;
 }
 .hero-shade {

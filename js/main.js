@@ -135,7 +135,7 @@
 
     // Hero video parallax out
     gsap.to(".hero-video", {
-      yPercent: 14,
+      yPercent: 9,
       ease: "none",
       scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true },
     });

@@ -357,59 +357,127 @@
            Marker positions are % of the frame: tweak --x/--y (project) or
            inline left/top (labels) if needed. -->
       <div class="loc-map" data-reveal="clip" role="img" aria-label="Map of Al Marjan Island showing the location of Positano Residences on the crescent island">
-        <svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <svg viewBox="0 0 1600 1090" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
           <defs>
-            <radialGradient id="seaGrad" gradientUnits="userSpaceOnUse" cx="600" cy="340" r="1150">
+            <radialGradient id="seaGrad" gradientUnits="userSpaceOnUse" cx="620" cy="460" r="1350">
               <stop offset="0%" stop-color="#1c2426"/>
               <stop offset="100%" stop-color="#141a1b"/>
             </radialGradient>
           </defs>
           <!-- sea -->
-          <rect width="1600" height="760" fill="url(#seaGrad)"/>
+          <rect width="1600" height="1090" fill="url(#seaGrad)"/>
+
           <!-- mainland coast -->
-          <path d="M1272,0 C1170,120 1100,250 1040,390 C990,500 955,610 962,700 L975,760 L1600,760 L1600,0 Z"
+          <path d="M1260,0
+                   C1226,54 1164,134 1114,215
+                   C1065,295 1038,349 989,430
+                   C940,510 895,582 850,653
+                   C810,716 779,770 788,810
+                   C775,835 761,850 743,904
+                   C728,960 720,984 712,1090
+                   L1600,1090 L1600,0 Z"
                 fill="#2b251c" stroke="rgba(233,223,201,0.2)" stroke-width="1.5"/>
-          <!-- Al Hamra lagoon cut + islets -->
-          <ellipse cx="1320" cy="250" rx="135" ry="100" fill="url(#seaGrad)"/>
-          <path d="M1275,185 C1325,160 1385,175 1400,220 C1415,265 1375,300 1325,298 C1277,296 1245,250 1275,185 Z" fill="#2b251c"/>
-          <ellipse cx="1283" cy="318" rx="40" ry="24" fill="#2b251c"/>
+
+          <!-- Al Hamra lagoon + islets + greens -->
+          <path d="M1110,270 C1120,180 1210,138 1295,150 C1345,158 1340,196 1315,214
+                   C1352,234 1348,292 1302,312 C1332,344 1312,402 1250,412
+                   C1178,422 1118,362 1110,270 Z" fill="url(#seaGrad)"/>
+          <path d="M1180,190 C1215,155 1272,152 1290,182 C1308,212 1290,238 1262,244
+                   C1288,258 1284,290 1252,296 C1214,302 1178,268 1180,190 Z" fill="#2b251c"/>
+          <ellipse cx="1150" cy="330" rx="34" ry="22" fill="#2b251c"/>
+          <path d="M1062,380 C1090,368 1118,378 1120,404 C1122,430 1096,446 1070,440 C1046,434 1042,396 1062,380 Z" fill="#2c2d20" opacity="0.85"/>
+          <path d="M1158,392 C1186,382 1212,392 1212,416 C1212,438 1186,450 1162,442 C1140,434 1140,402 1158,392 Z" fill="#2c2d20" opacity="0.85"/>
+          <path d="M1268,140 C1300,120 1340,124 1348,150 C1356,176 1330,194 1300,190 C1274,186 1256,160 1268,140 Z" fill="#2c2d20" opacity="0.7"/>
+
           <!-- roads -->
-          <path d="M1600,140 C1430,320 1290,460 1180,545 C1080,655 1005,705 940,760" fill="none" stroke="rgba(233,223,201,0.28)" stroke-width="3"/>
-          <path d="M960,708 C1060,640 1160,560 1265,470 C1340,408 1440,330 1530,265" fill="none" stroke="rgba(233,223,201,0.16)" stroke-width="2"/>
-          <!-- causeway to the island -->
-          <path d="M958,712 C935,708 915,706 905,703" fill="none" stroke="rgba(233,223,201,0.35)" stroke-width="4" stroke-linecap="round"/>
+          <path d="M1522,67 C1400,190 1250,380 1114,568 C1050,660 940,760 850,830 C800,880 760,950 740,1010 L722,1090"
+                fill="none" stroke="rgba(233,223,201,0.3)" stroke-width="3"/>
+          <path d="M790,812 C850,755 915,700 1029,617 L1114,568" fill="none" stroke="rgba(233,223,201,0.2)" stroke-width="2"/>
+          <path d="M1114,568 C1180,600 1280,660 1343,698 L1450,770" fill="none" stroke="rgba(233,223,201,0.16)" stroke-width="2"/>
+
+          <!-- causeway bridge -->
+          <path d="M788,810 L752,791" stroke="rgba(233,223,201,0.4)" stroke-width="4" stroke-linecap="round"/>
+
+          <!-- small port by the causeway -->
+          <path d="M591,810 L614,794 M605,801 L616,815" stroke="rgba(233,223,201,0.3)" stroke-width="2.5" stroke-linecap="round"/>
+
           <!-- round island with beach coves -->
           <g>
-            <circle cx="490" cy="240" r="118" fill="#2b251c" stroke="rgba(233,223,201,0.2)" stroke-width="1.5"/>
-            <circle cx="490" cy="116" r="21" fill="url(#seaGrad)"/>
-            <circle cx="590" cy="180" r="21" fill="url(#seaGrad)"/>
-            <circle cx="605" cy="290" r="21" fill="url(#seaGrad)"/>
-            <circle cx="522" cy="352" r="21" fill="url(#seaGrad)"/>
-            <circle cx="408" cy="332" r="21" fill="url(#seaGrad)"/>
-            <circle cx="372" cy="222" r="21" fill="url(#seaGrad)"/>
-            <circle cx="426" cy="132" r="21" fill="url(#seaGrad)"/>
+            <circle cx="564" cy="316" r="116" fill="#2b251c" stroke="rgba(233,223,201,0.2)" stroke-width="1.5"/>
+            <circle cx="564" cy="196" r="20" fill="url(#seaGrad)"/>
+            <circle cx="648" cy="232" r="20" fill="url(#seaGrad)"/>
+            <circle cx="682" cy="318" r="20" fill="url(#seaGrad)"/>
+            <circle cx="646" cy="402" r="20" fill="url(#seaGrad)"/>
+            <circle cx="562" cy="436" r="20" fill="url(#seaGrad)"/>
+            <circle cx="478" cy="400" r="20" fill="url(#seaGrad)"/>
+            <circle cx="446" cy="314" r="20" fill="url(#seaGrad)"/>
+            <circle cx="482" cy="230" r="20" fill="url(#seaGrad)"/>
           </g>
+
           <!-- s-shaped island -->
-          <path d="M700,150 C760,108 842,118 872,170 C902,216 872,262 830,272 C798,280 782,302 802,332 C772,364 710,352 688,310 C664,262 656,208 700,150 Z"
+          <path d="M734,269 C761,192 859,175 904,228 C940,273 913,331 859,340
+                   C823,347 810,371 832,394 C810,421 756,407 743,371
+                   C727,334 716,304 734,269 Z"
                 fill="#2b251c" stroke="rgba(233,223,201,0.2)" stroke-width="1.5"/>
-          <circle cx="828" cy="222" r="26" fill="url(#seaGrad)"/>
-          <!-- crescent island (the project sits here) -->
-          <path d="M875,447 A225,225 0 1 0 875,673 L810,635 A150,150 0 1 1 810,485 Z"
+          <circle cx="855" cy="269" r="27" fill="url(#seaGrad)"/>
+          <circle cx="828" cy="380" r="13" fill="url(#seaGrad)"/>
+
+          <!-- crescent island — the project sits on its upper arm -->
+          <path d="M546,528
+                   C542,495 545,470 553,461
+                   C560,435 570,422 586,416
+                   C602,404 620,398 644,398
+                   C668,396 692,399 716,407
+                   C742,414 766,420 788,428
+                   C812,438 832,446 846,456
+                   C864,468 878,478 886,490
+                   C890,504 886,518 875,528
+                   C870,532 862,533 855,530
+                   C836,522 816,510 797,501
+                   C773,491 749,485 725,481
+                   C702,477 678,475 658,477
+                   C640,479 624,484 613,494
+                   C602,504 595,515 593,528
+                   C591,543 593,558 598,573
+                   C605,590 612,606 622,622
+                   C632,638 644,654 658,669
+                   C671,684 685,698 700,712
+                   C711,726 722,741 732,756
+                   C739,767 746,779 750,789
+                   C748,795 743,798 738,799
+                   C729,790 720,779 711,768
+                   C700,755 688,741 676,727
+                   C662,712 648,697 634,682
+                   C616,668 598,654 582,637
+                   C568,620 560,600 557,580
+                   C551,562 547,545 546,528 Z"
                 fill="#2b251c" stroke="rgba(233,223,201,0.2)" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M875,673 Q890,690 905,702" fill="none" stroke="#2b251c" stroke-width="26" stroke-linecap="round"/>
+
+          <!-- road along the crescent -->
+          <path d="M748,787 C705,735 655,675 622,615 C600,565 606,505 646,462 C700,432 760,430 820,452 C850,464 866,482 862,506"
+                fill="none" stroke="rgba(233,223,201,0.16)" stroke-width="1.5"/>
+
+          <!-- breakwater west of the head -->
+          <path d="M462,512 Q468,584 516,634" fill="none" stroke="rgba(233,223,201,0.14)" stroke-width="1.5"/>
+
           <!-- islet in the lagoon -->
-          <circle cx="700" cy="565" r="13" fill="#2b251c" stroke="rgba(233,223,201,0.14)" stroke-width="1"/>
+          <circle cx="667" cy="573" r="9" fill="#2b251c" stroke="rgba(233,223,201,0.2)" stroke-width="1"/>
+
+          <!-- small island south-west -->
+          <path d="M110,850 C130,834 176,830 200,842 C216,850 210,866 188,872 C158,880 122,872 110,850 Z"
+                fill="#2b251c" stroke="rgba(233,223,201,0.16)" stroke-width="1"/>
         </svg>
         <!-- labels -->
-        <span class="map-label" style="left:30%; top:12%">Al Marjan Island</span>
-        <span class="map-label" style="left:80%; top:20%">Al Jazeera Al Hamra</span>
-        <span class="map-label map-label-dim" style="left:88%; top:7%">Ras Al Khaimah →</span>
-        <span class="map-label map-label-dim" style="left:47%; top:93%">← Dubai · 45 min via E11</span>
-        <span class="map-poi" style="left:31.5%; top:65.5%" aria-hidden="true"></span>
-        <span class="map-label map-label-dim" style="left:23.5%; top:74%">Wynn Al Marjan · 2027</span>
+        <span class="map-label" style="left:35%; top:11%">Al Marjan Island</span>
+        <span class="map-label" style="left:78%; top:15%">Al Jazeera Al Hamra</span>
+        <span class="map-label map-label-dim" style="left:89%; top:5.5%">Ras Al Khaimah →</span>
+        <span class="map-label map-label-dim" style="left:46%; top:94%">← Dubai · 45 min via E11</span>
+        <span class="map-poi" style="left:35.5%; top:43.5%" aria-hidden="true"></span>
+        <span class="map-label map-label-dim" style="left:24%; top:49%">Wynn Al Marjan · 2027</span>
+        <span class="map-label map-label-dim" style="left:9%; top:94%">25°40′48″N · 55°44′40″E</span>
         <span class="map-compass" aria-hidden="true">N</span>
         <!-- the project -->
-        <button class="hotspot" style="--x:44.5%; --y:49%" data-flip="false" aria-expanded="false">
+        <button class="hotspot" style="--x:41.3%; --y:41.9%" data-flip="false" aria-expanded="false">
           <span class="hotspot-dot"></span>
           <span class="hotspot-card"><strong>Positano Residences</strong>Front row on the crescent — terraced villas with direct access to the sand.</span>
         </button>

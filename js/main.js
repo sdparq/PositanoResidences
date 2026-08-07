@@ -151,19 +151,6 @@
       });
     });
 
-    // Counters
-    document.querySelectorAll("[data-count]").forEach((el) => {
-      const end = parseInt(el.getAttribute("data-count"), 10) || 0;
-      const obj = { v: 0 };
-      gsap.to(obj, {
-        v: end,
-        duration: 1.8,
-        ease: "power2.out",
-        onUpdate: () => { el.textContent = Math.round(obj.v); },
-        scrollTrigger: { trigger: el, start: "top 90%", once: true },
-      });
-    });
-
     // Horizontal gallery (desktop pin)
     const gallery = document.querySelector(".gallery");
     const track = document.getElementById("galleryTrack");

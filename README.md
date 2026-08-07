@@ -20,7 +20,8 @@ netlify.toml        Configuración de Netlify
 ## Secciones
 
 Hero (vídeo) → Vision → Architecture → **Masterplan interactivo** (hotspots) → Residences
-(tipologías, sin precios) → Amenities → Gallery (scroll horizontal) → Location → Contact
+(tipologías, sin precios) → Amenities → Gallery (scroll horizontal) → Location (con plano
+estilizado SVG del archipiélago y marcador del proyecto) → Contact
 (formulario Netlify Forms "contact").
 
 ## Imágenes

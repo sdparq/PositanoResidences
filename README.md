@@ -31,8 +31,8 @@ del proyecto). Contacto: mailto en el nav + datos del footer.
 | `render-terraces-sea.jpg` | Villas landscape.jpg     | Full-bleed con parallax, galería      |
 | `render-boulevard.jpg`    | Lateral.jpg              | Arquitectura, amenities, galería      |
 | `render-access.jpg`       | Access.jpg               | Amenities (concierge), galería        |
-| `masterplan-green.jpg`    | Isometric Concept.jpg    | **Masterplan interactivo** (hotspots) |
-| `masterplan-axon.jpg`     | Facade.jpg               | Arquitectura, galería                 |
+| `masterplan-green.jpg`    | isometric front.jpg      | **Masterplan interactivo** (hotspots) |
+| `masterplan-axon.jpg`     | isometric facade-real.jpg| Arquitectura, galería                 |
 | `og-image.jpg`            | generada automáticamente | Compartir en RRSS (1200×630)          |
 
 Los marcadores del masterplan se posicionan con `style="--x:..%; --y:..%"` en cada

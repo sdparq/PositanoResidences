@@ -19,20 +19,21 @@ netlify.toml        Configuración de Netlify
 
 ## Secciones
 
-Hero (vídeo) → Vision → Architecture → **Masterplan interactivo** (hotspots) → Amenities →
-Gallery (scroll horizontal) → Location (plano estilizado SVG del archipiélago con marcador
-del proyecto). Contacto: mailto en el nav + datos del footer.
+Hero (vídeo) → Vision → **Masterplan interactivo** (hotspots) → **Process** (comparador
+arrastrable croquis ↔ render) → Gallery (scroll horizontal) → Location (plano estilizado SVG
+con marcador del proyecto). Contacto: solo los datos del footer.
 
 ## Imágenes
 
 | Archivo en `assets/img/`  | Render original          | Uso                                   |
 | ------------------------- | ------------------------ | ------------------------------------- |
-| `render-beachfront.jpg`   | Exterior Beach.jpeg      | Arquitectura, amenities, galería      |
+| `render-beachfront.jpg`   | Exterior Beach.jpeg      | Galería                               |
 | `render-terraces-sea.jpg` | Villas landscape.jpg     | Full-bleed con parallax, galería      |
-| `render-boulevard.jpg`    | Lateral.jpg              | Arquitectura, amenities, galería      |
-| `render-access.jpg`       | Access.jpg               | Amenities (concierge), galería        |
-| `masterplan-green.jpg`    | isometric front.jpg      | **Masterplan interactivo** (hotspots) |
-| `masterplan-axon.jpg`     | isometric facade-real.jpg| Arquitectura, galería                 |
+| `render-boulevard.jpg`    | Lateral.jpg              | Galería                               |
+| `render-access.jpg`       | Access.jpg               | Galería                               |
+| `masterplan-green.jpg`    | isometric front.jpg      | **Masterplan** (hotspots) y comparador|
+| `masterplan-sketch.jpg`   | Isometric Concept.jpg    | Comparador croquis ↔ render           |
+| `masterplan-axon.jpg`     | isometric facade-real.jpg| Galería                               |
 | `og-image.jpg`            | generada automáticamente | Compartir en RRSS (1200×630)          |
 
 Los marcadores del masterplan se posicionan con `style="--x:..%; --y:..%"` en cada
@@ -41,12 +42,8 @@ los atributos `width`/`height` de sus `<img>`.
 
 ## Datos a confirmar
 
-Marcados con `<!-- TODO -->` en `index.html`:
-
-- Mix de unidades del banner de cifras: `18` villas / `76` residencias / `300 m` de playa
-- Superficies y dormitorios de las tipologías
-- Tiempos de trayecto de la sección Location
-- **Email de contacto** del footer y del botón del nav (`sales@qubedevelopment.com` es placeholder)
+- **Email y teléfono de contacto** del footer (`sales@qubedevelopment.com` / `+971 50 000 0000`
+  son placeholders)
 
 ## Desplegar en Netlify
 

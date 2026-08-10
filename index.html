@@ -46,6 +46,9 @@
   </div>
 </div>
 
+<!-- ══ Scroll progress ══ -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
 <!-- ══ Custom cursor (desktop only) ══ -->
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
@@ -59,13 +62,12 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#vision">Vision</a>
-      <a href="#architecture">Architecture</a>
-      <a href="#amenities">Amenities</a>
+      <a href="#masterplan">Masterplan</a>
+      <a href="#process">Process</a>
       <a href="#gallery">Gallery</a>
       <a href="#location">Location</a>
     </nav>
     <div class="nav-actions">
-      <a href="mailto:sales@qubedevelopment.com" class="btn btn-small btn-solid">Contact</a>
       <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
@@ -77,11 +79,10 @@
 <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
   <nav class="menu-links" aria-label="Mobile">
     <a href="#vision"><em>01</em>Vision</a>
-    <a href="#architecture"><em>02</em>Architecture</a>
-    <a href="#masterplan"><em>03</em>Masterplan</a>
-    <a href="#amenities"><em>04</em>Amenities</a>
-    <a href="#gallery"><em>05</em>Gallery</a>
-    <a href="#location"><em>06</em>Location</a>
+    <a href="#masterplan"><em>02</em>Masterplan</a>
+    <a href="#process"><em>03</em>Process</a>
+    <a href="#gallery"><em>04</em>Gallery</a>
+    <a href="#location"><em>05</em>Location</a>
   </nav>
   <div class="menu-foot">
     <span>Al Marjan Island · Ras Al Khaimah · UAE</span>
@@ -152,43 +153,11 @@
     </figure>
   </section>
 
-  <!-- ══ 02 · ARCHITECTURE ══ -->
-  <section class="section architecture" id="architecture">
-    <div class="container arch-grid">
-      <div class="arch-copy">
-        <header class="section-head" data-reveal>
-          <span class="section-index">02 — Architecture</span>
-          <h2 class="section-title">Terraces that belong to the landscape</h2>
-        </header>
-        <div class="arch-chapters">
-          <article class="arch-chapter" data-reveal>
-            <h3><em>I.</em> The Terraces</h3>
-            <p>Villas step down with the dune — each roof is the garden of the home above.</p>
-          </article>
-          <article class="arch-chapter" data-reveal>
-            <h3><em>II.</em> The Boulevard</h3>
-            <p>A promenade of boutiques and cafés in terracotta and travertine, leading straight to the water.</p>
-          </article>
-          <article class="arch-chapter" data-reveal>
-            <h3><em>III.</em> The Beach Pavilion</h3>
-            <p>The residents' club on the sand — pool, spa, gym and lounge behind a single pane of glass.</p>
-          </article>
-        </div>
-        <p class="arch-credit" data-reveal>Master-planned and designed in-house by Qube Development.</p>
-      </div>
-      <div class="arch-visuals">
-        <figure data-reveal="clip"><img width="1397" height="752" src="assets/img/masterplan-axon.jpg" alt="Aerial view of the block from the beach side" loading="lazy" decoding="async"><figcaption>The block — villas over the boulevard podium</figcaption></figure>
-        <figure data-reveal="clip"><img width="1024" height="1042" src="assets/img/render-boulevard.jpg" alt="The retail boulevard with terracotta facades, sea at the end of the street" loading="lazy" decoding="async"><figcaption>The boulevard — terracotta, travertine, sea</figcaption></figure>
-        <figure data-reveal="clip"><img width="1971" height="528" src="assets/img/render-beachfront.jpg" alt="Beachfront elevation with terraced villas and the glass beach pavilion" loading="lazy" decoding="async"><figcaption>The beach pavilion, from the sand</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ 03 · MASTERPLAN (interactive) ══ -->
+  <!-- ══ 02 · MASTERPLAN (interactive) ══ -->
   <section class="section masterplan dark" id="masterplan">
     <div class="container">
       <header class="section-head" data-reveal>
-        <span class="section-index">03 — Masterplan</span>
+        <span class="section-index">02 — Masterplan</span>
         <h2 class="section-title">Explore the island block</h2>
         <p class="section-lede">Tap the markers to walk the plan — from the sand to the sky residences.</p>
       </header>
@@ -223,38 +192,34 @@
     </div>
   </section>
 
-  <!-- ══ 04 · AMENITIES ══ -->
-  <section class="section amenities dark" id="amenities">
-    <div class="container amen-grid">
-      <div class="amen-copy">
-        <header class="section-head" data-reveal>
-          <span class="section-index">04 — Amenities</span>
-          <h2 class="section-title">Resort life,<br>every day</h2>
-        </header>
-        <ul class="amen-list" data-reveal>
-          <li class="active" data-img="0"><em>01</em>The Beach Club</li>
-          <li data-img="1"><em>02</em>Infinity-Edge Pools</li>
-          <li data-img="2"><em>03</em>Wellness Spa &amp; Hammam</li>
-          <li data-img="3"><em>04</em>Residents' Gym &amp; Studio</li>
-          <li data-img="4"><em>05</em>The Boulevard — Retail &amp; Dining</li>
-          <li data-img="5"><em>06</em>Concierge &amp; Owner Services</li>
-        </ul>
-      </div>
-      <div class="amen-visual" data-reveal="clip" aria-hidden="true">
-        <img width="1971" height="528" src="assets/img/render-beachfront.jpg" alt="" class="active" loading="lazy" decoding="async">
-        <img width="1753" height="592" src="assets/img/render-terraces-sea.jpg" alt="" loading="lazy" decoding="async">
-        <img width="1131" height="944" src="assets/img/masterplan-green.jpg" alt="" loading="lazy" decoding="async">
-        <img width="1397" height="752" src="assets/img/masterplan-axon.jpg" alt="" loading="lazy" decoding="async">
-        <img width="1024" height="1042" src="assets/img/render-boulevard.jpg" alt="" loading="lazy" decoding="async">
-        <img width="1397" height="752" src="assets/img/render-access.jpg" alt="" loading="lazy" decoding="async">
+  <!-- ══ 03 · PROCESS (drag comparison) ══ -->
+  <section class="section process dark" id="process">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-index">03 — The Process</span>
+        <h2 class="section-title">From line to life</h2>
+        <p class="section-lede">Drag the divider — the concept drawing becomes the built vision.</p>
+      </header>
+      <div class="compare" id="compare" data-reveal="clip">
+        <img class="compare-base" width="1131" height="944" src="assets/img/masterplan-green.jpg" alt="Realistic aerial render of the project" loading="lazy" decoding="async">
+        <div class="compare-top" aria-hidden="true">
+          <img width="1131" height="944" src="assets/img/masterplan-sketch.jpg" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="compare-handle" id="compareHandle" role="slider" tabindex="0" aria-label="Compare concept drawing and final render" aria-valuemin="0" aria-valuemax="100" aria-valuenow="32">
+          <span class="compare-knob">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l-6 7 6 7M16 5l6 7-6 7"/></svg>
+          </span>
+        </div>
+        <span class="compare-tag" style="left:1.2rem">The drawing</span>
+        <span class="compare-tag" style="right:1.2rem">The vision</span>
       </div>
     </div>
   </section>
 
-  <!-- ══ 05 · GALLERY (horizontal) ══ -->
+  <!-- ══ 04 · GALLERY (horizontal) ══ -->
   <section class="gallery" id="gallery">
     <div class="gallery-head container">
-      <span class="section-index" data-reveal>05 — Gallery</span>
+      <span class="section-index" data-reveal>04 — Gallery</span>
       <h2 class="section-title" data-reveal>First impressions</h2>
     </div>
     <div class="gallery-viewport">
@@ -269,11 +234,11 @@
     </div>
   </section>
 
-  <!-- ══ 06 · LOCATION ══ -->
+  <!-- ══ 05 · LOCATION ══ -->
   <section class="section location dark" id="location">
     <div class="container">
       <header class="section-head" data-reveal>
-        <span class="section-index">06 — Location</span>
+        <span class="section-index">05 — Location</span>
         <h2 class="section-title">The Riviera of<br>Ras Al Khaimah</h2>
         <p class="section-lede">Al Marjan Island, Ras Al Khaimah — five minutes from
         Wynn Al Marjan, opening 2027.</p>

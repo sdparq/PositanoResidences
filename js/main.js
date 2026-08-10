@@ -76,11 +76,16 @@
     setTimeout(finishPreloader, 900);
   }
 
-  /* ── Nav state ── */
+  /* ── Nav state + scroll progress ── */
   const nav = document.getElementById("nav");
+  const progress = document.getElementById("scrollProgress");
   const onScroll = () => {
     const y = window.scrollY || 0;
     if (nav) nav.classList.toggle("scrolled", y > 40);
+    if (progress) {
+      const max = doc.scrollHeight - window.innerHeight;
+      progress.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
+    }
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -196,18 +201,49 @@
   });
   document.addEventListener("click", () => closeHotspots());
 
-  /* ── Amenities image swap ── */
-  const amenItems = Array.from(document.querySelectorAll(".amen-list li"));
-  const amenImgs = Array.from(document.querySelectorAll(".amen-visual img"));
-  amenItems.forEach((li) => {
-    const activate = () => {
-      const idx = parseInt(li.getAttribute("data-img"), 10) || 0;
-      amenItems.forEach((x) => x.classList.toggle("active", x === li));
-      amenImgs.forEach((img, i) => img.classList.toggle("active", i === idx));
+  /* ── Sketch-to-render comparison ── */
+  const cmp = document.getElementById("compare");
+  if (cmp) {
+    const handle = document.getElementById("compareHandle");
+    const setPos = (p) => {
+      p = Math.max(4, Math.min(96, p));
+      cmp.style.setProperty("--pos", p + "%");
+      if (handle) handle.setAttribute("aria-valuenow", String(Math.round(p)));
     };
-    li.addEventListener("mouseenter", activate);
-    li.addEventListener("click", activate);
-  });
+    const posFromEvent = (e) => {
+      const r = cmp.getBoundingClientRect();
+      setPos(((e.clientX - r.left) / r.width) * 100);
+    };
+    let dragging = false;
+    cmp.addEventListener("dragstart", (e) => e.preventDefault());
+    cmp.addEventListener("pointerdown", (e) => {
+      e.preventDefault(); // stop native image dragging from hijacking the gesture
+      dragging = true;
+      try { cmp.setPointerCapture(e.pointerId); } catch {}
+      posFromEvent(e);
+    });
+    cmp.addEventListener("pointermove", (e) => { if (dragging) posFromEvent(e); });
+    const stopDrag = () => { dragging = false; };
+    cmp.addEventListener("pointerup", stopDrag);
+    cmp.addEventListener("pointercancel", stopDrag);
+    if (handle) {
+      handle.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        e.preventDefault();
+        const cur = parseFloat(cmp.style.getPropertyValue("--pos")) || 32;
+        setPos(cur + (e.key === "ArrowRight" ? 4 : -4));
+      });
+    }
+    if (anim) {
+      // affordance sweep when the block first enters the viewport
+      const obj = { p: 4 };
+      gsap.to(obj, {
+        p: 32, duration: 1.6, ease: "power3.inOut", delay: 0.3,
+        onUpdate: () => cmp.style.setProperty("--pos", obj.p + "%"),
+        scrollTrigger: { trigger: cmp, start: "top 75%", once: true },
+      });
+    }
+  }
 
   /* ── Custom cursor (fine pointers only) ── */
   if (anim && window.matchMedia("(pointer: fine)").matches) {
@@ -227,7 +263,7 @@
         requestAnimationFrame(loop);
       };
       loop();
-      const HOVERABLE = "a, button, input, select, textarea, .amen-list li";
+      const HOVERABLE = "a, button, input, select, textarea";
       document.addEventListener("mouseover", (e) => {
         ring.classList.toggle("is-hover", Boolean(e.target.closest(HOVERABLE)));
       });

@@ -201,48 +201,30 @@
   });
   document.addEventListener("click", () => closeHotspots());
 
-  /* ── Sketch-to-render comparison ── */
-  const cmp = document.getElementById("compare");
-  if (cmp) {
-    const handle = document.getElementById("compareHandle");
-    const setPos = (p) => {
-      p = Math.max(4, Math.min(96, p));
-      cmp.style.setProperty("--pos", p + "%");
-      if (handle) handle.setAttribute("aria-valuenow", String(Math.round(p)));
-    };
-    const posFromEvent = (e) => {
-      const r = cmp.getBoundingClientRect();
-      setPos(((e.clientX - r.left) / r.width) * 100);
-    };
-    let dragging = false;
-    cmp.addEventListener("dragstart", (e) => e.preventDefault());
-    cmp.addEventListener("pointerdown", (e) => {
-      e.preventDefault(); // stop native image dragging from hijacking the gesture
-      dragging = true;
-      try { cmp.setPointerCapture(e.pointerId); } catch {}
-      posFromEvent(e);
+  /* ── Location map (Leaflet, self-hosted; OSM raster tiles) ── */
+  const mapEl = document.getElementById("map");
+  if (mapEl && window.L) {
+    const HERE = [25.680214, 55.744531];
+    const map = L.map(mapEl, {
+      center: HERE,
+      zoom: 13,
+      minZoom: 11,
+      maxZoom: 17,
+      scrollWheelZoom: false,               // don't hijack page scrolling
+      dragging: !("ontouchstart" in window), // touch: pinch-zoom only, page scroll stays free
+      attributionControl: true,
     });
-    cmp.addEventListener("pointermove", (e) => { if (dragging) posFromEvent(e); });
-    const stopDrag = () => { dragging = false; };
-    cmp.addEventListener("pointerup", stopDrag);
-    cmp.addEventListener("pointercancel", stopDrag);
-    if (handle) {
-      handle.addEventListener("keydown", (e) => {
-        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-        e.preventDefault();
-        const cur = parseFloat(cmp.style.getPropertyValue("--pos")) || 32;
-        setPos(cur + (e.key === "ArrowRight" ? 4 : -4));
-      });
-    }
-    if (anim) {
-      // affordance sweep when the block first enters the viewport
-      const obj = { p: 4 };
-      gsap.to(obj, {
-        p: 32, duration: 1.6, ease: "power3.inOut", delay: 0.3,
-        onUpdate: () => cmp.style.setProperty("--pos", obj.p + "%"),
-        scrollTrigger: { trigger: cmp, start: "top 75%", once: true },
-      });
-    }
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+      subdomains: "abcd",
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    }).addTo(map);
+    const pin = L.divIcon({
+      className: "map-pin",
+      html: '<span class="map-pin-dot"></span><span class="map-pin-label">Positano Residences</span>',
+      iconSize: [0, 0],
+    });
+    L.marker(HERE, { icon: pin, keyboard: false }).addTo(map);
+    window.addEventListener("load", () => map.invalidateSize());
   }
 
   /* ── Custom cursor (fine pointers only) ── */

@@ -19,9 +19,9 @@ netlify.toml        Configuración de Netlify
 
 ## Secciones
 
-Hero (vídeo) → Vision → **Masterplan interactivo** (hotspots) → **Process** (comparador
-arrastrable croquis ↔ render) → Gallery (scroll horizontal) → Location (plano estilizado SVG
-con marcador del proyecto). Contacto: solo los datos del footer.
+Hero (vídeo) → Vision → **Masterplan interactivo** (hotspots) → Gallery (scroll horizontal)
+→ Location (**mapa real Leaflet** con cartografía Carto/OSM teñida al estilo de la web y pin
+del proyecto en 25.680214, 55.744531). Contacto: solo los datos del footer.
 
 ## Imágenes
 
@@ -31,8 +31,7 @@ con marcador del proyecto). Contacto: solo los datos del footer.
 | `render-terraces-sea.jpg` | Villas landscape.jpg     | Full-bleed con parallax, galería      |
 | `render-boulevard.jpg`    | Lateral.jpg              | Galería                               |
 | `render-access.jpg`       | Access.jpg               | Galería                               |
-| `masterplan-green.jpg`    | isometric front.jpg      | **Masterplan** (hotspots) y comparador|
-| `masterplan-sketch.jpg`   | Isometric Concept.jpg    | Comparador croquis ↔ render           |
+| `masterplan-green.jpg`    | isometric front.jpg      | **Masterplan** (hotspots)             |
 | `masterplan-axon.jpg`     | isometric facade-real.jpg| Galería                               |
 | `og-image.jpg`            | generada automáticamente | Compartir en RRSS (1200×630)          |
 
@@ -64,6 +63,9 @@ los atributos `width`/`height` de sus `<img>`.
 
 - Animaciones GSAP + ScrollTrigger + Lenis auto-alojadas. Con JS deshabilitado o
   `prefers-reduced-motion`, la página se muestra completa sin animaciones.
+- Mapa: Leaflet auto-alojado; los tiles de Carto/OSM son la única dependencia externa en
+  runtime (requieren la atribución que ya lleva el mapa). El tinte cálido se aplica con un
+  filtro CSS sobre `.leaflet-tile-pane`.
 - El preloader se muestra una vez por sesión (`sessionStorage`).
 - Vídeo del hero: reprocesado a 1080p (Lanczos + sharpen + grano fino, H.264 CRF 19)
   con fallback WebM/VP9. Si consigues el clip original en 1080p/4K del visualizador,

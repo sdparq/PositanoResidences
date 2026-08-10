@@ -24,10 +24,9 @@ BUA/GFA/GSA con contadores, barra de mix de usos y cuadro de áreas del Room Sch
 Gallery (scroll horizontal) → Location (**mapa real Leaflet** teñido al estilo de la web, pin
 en 25.680214, 55.744531). Contacto: solo los datos del footer.
 
-Los esquemas de usos por planta (L0…Roof) del final de Programme son **SVG esquemáticos
-redibujados** a partir del pantallazo de Revit (aproximados, no los dibujos reales). Para
-usar los reales: exporta cada Scheme como imagen y sustituye los `<svg>` del bloque
-`.schemes` por `<img>` — o pide que se integren pasando un zip con los exports.
+Los esquemas de usos por planta (L0…L9 + Roof) del final de Programme son los **exports
+reales de Revit** (`assets/img/scheme-00.png` … `scheme-10.png`), con la etiqueta original
+recortada y fondo transparente.
 
 ## Imágenes
 

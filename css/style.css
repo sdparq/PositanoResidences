@@ -593,8 +593,9 @@ html.js .preloader { display: flex; }
   margin-top: clamp(2.5rem, 5vh, 4rem);
   display: flex; flex-wrap: wrap; gap: 1.2rem;
 }
-.schemes figure { width: clamp(84px, 9vw, 120px); }
-.schemes img { width: 100%; border: 1px solid var(--line); background: #fff; }
+.schemes figure { width: clamp(76px, 8.5vw, 108px); }
+.schemes .scheme-svg { display: block; }
+.schemes svg { display: block; width: 100%; height: auto; }
 .schemes figcaption {
   margin-top: 0.4rem;
   text-align: center;

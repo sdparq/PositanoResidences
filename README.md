@@ -19,9 +19,14 @@ netlify.toml        Configuración de Netlify
 
 ## Secciones
 
-Hero (vídeo) → Vision → **Masterplan interactivo** (hotspots) → Gallery (scroll horizontal)
-→ Location (**mapa real Leaflet** con cartografía Carto/OSM teñida al estilo de la web y pin
-del proyecto en 25.680214, 55.744531). Contacto: solo los datos del footer.
+Hero (vídeo) → Vision → **Masterplan interactivo** (hotspots) → **Programme** (superficies
+BUA/GFA/GSA con contadores, barra de mix de usos y cuadro de áreas del Room Schedule) →
+Gallery (scroll horizontal) → Location (**mapa real Leaflet** teñido al estilo de la web, pin
+en 25.680214, 55.744531). Contacto: solo los datos del footer.
+
+**Pendiente opcional**: los esquemas de usos por planta (Scheme_0…Scheme_08) pueden añadirse
+en miniatura al final de Programme — exporta cada uno como imagen (`assets/img/scheme-00.png`
+…`scheme-08.png`, fondo blanco) y descomenta el bloque `.schemes` en `index.html`.
 
 ## Imágenes
 

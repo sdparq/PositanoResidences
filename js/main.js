@@ -156,6 +156,24 @@
       });
     });
 
+    // Programme: counters + mix bar growth
+    document.querySelectorAll("[data-count]").forEach((el) => {
+      const end = parseFloat(el.getAttribute("data-count")) || 0;
+      const obj = { v: 0 };
+      gsap.to(obj, {
+        v: end, duration: 1.7, ease: "power2.out",
+        onUpdate: () => { el.textContent = Math.round(obj.v).toLocaleString("en-US"); },
+        scrollTrigger: { trigger: el, start: "top 90%", once: true },
+      });
+    });
+    if (document.querySelector(".mix-seg")) {
+      gsap.from(".mix-seg", {
+        scaleX: 0, transformOrigin: "0 50%",
+        duration: 1.1, ease: "power3.out", stagger: 0.07,
+        scrollTrigger: { trigger: ".mix-bar", start: "top 85%", once: true },
+      });
+    }
+
     // Horizontal gallery (desktop pin)
     const gallery = document.querySelector(".gallery");
     const track = document.getElementById("galleryTrack");

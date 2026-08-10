@@ -525,6 +525,84 @@ html.js .preloader { display: flex; }
 .hotspot[data-flip="true"] .hotspot-card { left: auto; right: calc(100% + 14px); }
 .hotspot.active .hotspot-card { opacity: 1; visibility: visible; transform: translateY(-50%) scale(1); }
 
+/* ── Programme (uses & areas) ── */
+.programme { background: var(--paper); }
+.prog-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
+}
+.prog-stat { border-left: 1px solid var(--line); padding-left: 1.6rem; }
+.prog-stat strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  line-height: 1.15;
+}
+.prog-stat > span {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--stone);
+}
+.mix-bar {
+  display: flex;
+  height: 40px;
+  border: 1px solid var(--line);
+  background: var(--sand-2);
+  overflow: hidden;
+}
+.mix-seg {
+  flex: 0 0 var(--w);
+  background: var(--c);
+  border-right: 1px solid rgba(23, 21, 18, 0.12);
+}
+.mix-seg:last-child { border-right: 0; }
+.prog-table {
+  margin-top: clamp(2rem, 4vh, 3rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(2rem, 5vw, 5rem);
+}
+.prog-table li {
+  display: flex; align-items: baseline; gap: 0.9rem;
+  border-top: 1px solid var(--line);
+  padding: 0.85rem 0;
+  font-size: 0.95rem;
+}
+.prog-table i {
+  flex-shrink: 0;
+  width: 13px; height: 13px;
+  align-self: center;
+  background: var(--c);
+  border: 1px solid rgba(23, 21, 18, 0.18);
+}
+.prog-table em {
+  margin-left: auto;
+  font-style: normal;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+}
+.prog-table small {
+  width: 3.4em;
+  text-align: right;
+  font-size: 11px;
+  color: var(--stone);
+}
+.schemes {
+  margin-top: clamp(2.5rem, 5vh, 4rem);
+  display: flex; flex-wrap: wrap; gap: 1.2rem;
+}
+.schemes figure { width: clamp(84px, 9vw, 120px); }
+.schemes img { width: 100%; border: 1px solid var(--line); background: #fff; }
+.schemes figcaption {
+  margin-top: 0.4rem;
+  text-align: center;
+  font-size: 9.5px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--stone);
+}
+
 /* ── Gallery ── */
 .gallery { background: var(--sand-2); padding: clamp(5rem, 12vh, 8rem) 0; }
 .gallery-head { margin-bottom: clamp(2.5rem, 5vh, 4rem); }
@@ -680,6 +758,8 @@ html.anim [data-reveal="clip"] { clip-path: inset(10% 8% 10% 8%); }
 }
 @media (max-width: 900px) {
   .vision-grid { grid-template-columns: 1fr; }
+  .prog-stats { grid-template-columns: 1fr; gap: 2rem; }
+  .prog-table { grid-template-columns: 1fr; }
   .hero-stats div:nth-child(3) { border-left: 0; padding-left: 0; }
   .hero-stats { grid-template-columns: 1fr 1fr; gap: 1.2rem 0; }
 }
